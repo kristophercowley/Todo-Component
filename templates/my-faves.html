@@ -1,0 +1,31 @@
+<h1>Faves Component {{$ctrl.test}}</h1>
+<div class="jumbotron">
+    <div class="form-group">
+        <label for="type">Type</label>
+        <select ng-model="$ctrl.info.type">
+            <option value="all">all</option>
+            <option value="food">food</option>
+            <option value="movie">movie</option>
+            <option value="music">music</option>
+            <option value="things">things</option>
+            <option value="stuffs">stuffs</option>
+
+        </select>
+    </div>
+    <input type="text" ng-model="$ctrl.info.name" placeholder="add Name">
+    <input type="text" ng-model="$ctrl.info.todo" placeholder="add todo">
+
+    <button class="btn btn-primary" ng-click="$ctrl.addItem($ctrl.info)">Add Item</button>
+    <hr>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="item in $ctrl.items track by $index ">
+            <span>Name: {{item.name}}</span>
+            <br> 
+            <span>Info: {{item.todo}}</span>
+            <br> 
+            <span>Type: {{item.type}}</span>
+            <button class="btn btn-sm btn-danger" style="float:right" ng-click="$ctrl.removeItem($index)">X</button>
+            <!--<hr>-->
+        </li>
+    </ul>
+</div>
